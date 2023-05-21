@@ -1,5 +1,6 @@
 import Entrada from "../io/entrada";
 import Empresa from "../modelo/empresa";
+import CadastroConsumoCliente from "../negocio/CadastroConsumoCliente";
 import CadastroProdutos from "../negocio/CadastroProdutos";
 import CadastroServicos from "../negocio/CadastroServicos";
 import ListagemProdutos from "../negocio/ListagemProdutos";
@@ -34,6 +35,8 @@ while (execucao) {
     console.log(`10 - Listar todos os servicos`);
     console.log(`11 - Atualizar servico existente`);
     console.log(`12 - Deletar servico`);
+    //
+    console.log(`13 - Registrar consumo por cliente`);
     // out
     console.log(`0 - Sair`);
 
@@ -88,6 +91,10 @@ while (execucao) {
         case 12:
             let excluirServico = new ExcluirServico(empresa.getServicos)
             excluirServico.Exclui()
+            break
+        case 13:
+            let cadastroConsumoCliente = new CadastroConsumoCliente(empresa.getClientes,empresa)
+            cadastroConsumoCliente.cadastrar()
             break
         case 0:
             execucao = false
