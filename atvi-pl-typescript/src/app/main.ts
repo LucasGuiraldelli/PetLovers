@@ -3,6 +3,8 @@ import Empresa from "../modelo/empresa";
 import CadastroConsumoCliente from "../negocio/CadastroConsumoCliente";
 import CadastroProdutos from "../negocio/CadastroProdutos";
 import CadastroServicos from "../negocio/CadastroServicos";
+import ListagemConsumoMais from "../negocio/ListagemConsumoMais";
+import ListagemComusumoValor from "../negocio/ListagemConsumoValor";
 import ListagemProdutos from "../negocio/ListagemProdutos";
 import ListagemServicos from "../negocio/ListagemServicos";
 import AtualizarCliente from "../negocio/atualizarCliente";
@@ -21,24 +23,26 @@ let execucao = true
 while (execucao) {
     console.log(`Opções:`);
     // crud cliente
-    console.log(`1 - Cadastrar cliente`);
-    console.log(`2 - Listar todos os clientes`);
-    console.log(`3 - Atualizar cliente existente`);
-    console.log(`4 - Deletar cliente`);
+    console.log(`1  - Cadastrar cliente`);
+    console.log(`2  - Listar todos os clientes`);
+    console.log(`3  - Atualizar cliente existente`);
+    console.log(`4  - Deletar cliente`);
     // crud produtos
-    console.log(`5 - Cadastrar produto`);
-    console.log(`6 - Listar todos os produtos`);
-    console.log(`7 - Atualizar produto existente`);
-    console.log(`8 - Deletar produto`);
+    console.log(`5  - Cadastrar produto`);
+    console.log(`6  - Listar todos os produtos`);
+    console.log(`7  - Atualizar produto existente`);
+    console.log(`8  - Deletar produto`);
     // crud servicos
-    console.log(`9 - Cadastrar servico`);
+    console.log(`9  - Cadastrar servico`);
     console.log(`10 - Listar todos os servicos`);
     console.log(`11 - Atualizar servico existente`);
     console.log(`12 - Deletar servico`);
-    //
+    // listagens
     console.log(`13 - Registrar consumo por cliente`);
-    // out
-    console.log(`0 - Sair`);
+    console.log(`14 - Produtos ou serviços mais consumidos`);
+    console.log(`15 - Clientes que mais consumiram em valor`);
+   // out
+    console.log(`0  - Sair`);
 
     let entrada = new Entrada()
     let opcao = entrada.receberNumero(`Por favor, escolha uma opção: `)
@@ -93,8 +97,16 @@ while (execucao) {
             excluirServico.Exclui()
             break
         case 13:
-            let cadastroConsumoCliente = new CadastroConsumoCliente(empresa.getClientes,empresa)
+            let cadastroConsumoCliente = new CadastroConsumoCliente(empresa.getClientes, empresa)
             cadastroConsumoCliente.cadastrar()
+            break
+        case 14:
+            let top10_consum = new ListagemConsumoMais(empresa.getClientes)
+            top10_consum.listar()
+            break
+        case 15:
+            let top5_consum_valor = new ListagemComusumoValor(empresa)
+            top5_consum_valor.listar()
             break
         case 0:
             execucao = false
