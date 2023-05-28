@@ -1,9 +1,8 @@
 export default class Pet {
-    private nome: string
-    private tipo: string
-    private raca: string
-    private genero: string
-
+    public nome!: string
+    public tipo: string
+    public raca: string
+    public genero: string
     constructor(nome: string, raca: string, genero: string, tipo: string) {
         this.nome = nome
         this.raca = raca
@@ -11,8 +10,16 @@ export default class Pet {
         this.tipo = tipo
     }
 
-    public get getNome(){return this.nome}
-    public get getRaca(){return this.raca}
-    public get getGenero(){return this.genero}
-    public get getTipo(){return this.tipo}
+    public getNome(): string {
+        return this.nome
+    }
+    public getRaca(): string {
+        return this.raca
+    }
+    public getGenero(): string {
+        return this.genero
+    }
+    public getTipo(): string {
+        return this.tipo
+    }
 }

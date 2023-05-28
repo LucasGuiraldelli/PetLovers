@@ -32,4 +32,16 @@ export default class Entrada {
         }
         return ""
     }
+    public receberPet(mensagem: string): string {
+        let prompt = promptSync();
+        let exe = true
+        while (exe) {
+            let texto = prompt(mensagem)
+            if (texto == "") {
+                console.log("Esse campo é obrigatorio!");
+                exe = true
+            }
+        }
+        return "Como você chegou aqui???"
+    }
 }

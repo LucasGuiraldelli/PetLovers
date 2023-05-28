@@ -66,4 +66,8 @@ export default class Cliente {
         servico.addConsumo()
     }
 
+    public addPets(pet: Pet) {
+        this.pets.push(pet)
+    }
+
 }
