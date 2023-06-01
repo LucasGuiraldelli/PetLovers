@@ -1,12 +1,13 @@
 import React, { ReactElement } from 'react';
+import CadastroCliente from './CadastroCliente';
 import './designe.css';
 
-function TelaInicial(): ReactElement {
+function Home(): ReactElement {
   return (
     <div className="card">
       <div className="title">Cadastros</div>
       <div className="btns">
-        <a className="btn" href="">
+        <a className="btn" href="/CadastroCliente">
           Cadastro de Cliente
         </a>
         <a className="btn" href="">
@@ -23,4 +24,4 @@ function TelaInicial(): ReactElement {
   );
 }
 
-export default TelaInicial;
+export default Home;
