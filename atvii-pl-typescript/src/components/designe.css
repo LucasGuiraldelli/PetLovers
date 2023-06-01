@@ -35,10 +35,11 @@
 .card {
   border: solid 1px;
   border-radius: 5px;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   padding: 20px 20px 30px 20px;
+  margin-top: 5px;
 }
 
 .btn {
@@ -52,6 +53,24 @@
 .title {
   font-size: 30px;
   margin-bottom: 20px
+}
+
+.navbar {
+  background-color: #282c34;
+  color: aqua;
+  display: inline;
+
+}
+
+li {
+  display: inline;
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
 }
 
 @keyframes App-logo-spin {

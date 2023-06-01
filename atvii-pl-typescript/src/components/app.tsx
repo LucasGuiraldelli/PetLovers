@@ -6,12 +6,13 @@ import CadastroCliente from './CadastroCliente';
 import CadastroPet from './CadastroPet';
 import Listagens from './Listagens';
 import Servico from './Servico';
+import './designe.css';
 
 function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <nav className='navbar'>
           <ul>
             <li>
               <Link to="/">Home</Link>
