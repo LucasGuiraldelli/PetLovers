@@ -7,12 +7,15 @@ import DeleteIcon from '@mui/icons-material/Delete'
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },
+    { field: 'tipo', headerName: 'Tipo', width: 90 },
     {
         field: 'name',
         headerName: 'Nome',
         width: 150,
         editable: true,
     },
+    { field: 'raca', headerName: 'Raca', width: 90 },
+    { field: 'gen', headerName: 'Gênero', width: 90 },
     {
         field: 'actions', headerName: 'Actions', width: 90, type: "actions", getActions: (params) => [
             <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
@@ -23,12 +26,16 @@ const columns: GridColDef[] = [
 
 // back
 const rows = [
-    { id: 1, name: 'Snow' },
+    { id: 1, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
+    { id: 2, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
+    { id: 3, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
+    { id: 4, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
+    { id: 5, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
 ];
 
-function Listagens(): ReactElement {
+function Pet(): ReactElement {
     return <div> <Appbar />
-        <h2>Listagens</h2>
+        <h2>Pet</h2>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
             <Box sx={{ width: "1000px" }}>
                 <DataGrid
@@ -41,4 +48,4 @@ function Listagens(): ReactElement {
     </div>
 }
 
-export default Listagens;
+export default Pet;

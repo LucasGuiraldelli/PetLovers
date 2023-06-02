@@ -17,20 +17,30 @@ export const Appbar = () => {
                 <Button sx={{ color: "white" }} onClick={() => {
                     navigate("/cliente")
                 }}>
-                    Cadastro Cliente
+                    Cliente
                 </Button>
 
-                <Button sx={{ color: "white" }}>
-                    Cadastro Pet
+                <Button sx={{ color: "white" }} onClick={() => {
+                    navigate("/Pet")
+                }}>
+                    Pet
                 </Button>
 
-                <Button sx={{ color: "white" }}>
-                    Cadastro Produto
+                <Button sx={{ color: "white" }} onClick={() => {
+                    navigate("/Produto")
+                }}>
+                    Produto
                 </Button>
-                <Button sx={{ color: "white" }}>
+
+                <Button sx={{ color: "white" }} onClick={() => {
+                    navigate("/Servico")
+                }}>
                     Serviço
                 </Button>
-                <Button sx={{ color: "white" }}>
+
+                <Button sx={{ color: "white" }} onClick={() => {
+                    navigate("/Listagens")
+                }}>
                     Listagens
                 </Button>
 

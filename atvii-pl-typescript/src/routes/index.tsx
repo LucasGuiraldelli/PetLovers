@@ -11,6 +11,7 @@ import Produto from "../templates/Produto";
 import Servico from "../templates/Servico";
 
 import Cliente from "../templates/Cliente"
+import Pet from "../templates/Pet";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,14 @@ export const router = createBrowserRouter([
         element: <CadastroPet />,
     },
     {
+        path: "cliente",
+        element: <Cliente />,
+    },
+    {
+        path: "pet",
+        element: <Pet />,
+    },
+    {
         path: "produto",
         element: <Produto />,
     },
@@ -37,8 +46,4 @@ export const router = createBrowserRouter([
         path: "listagens",
         element: <Listagens />,
     },
-    {
-        path: "cliente",
-        element: <Cliente />,
-    }
 ]);

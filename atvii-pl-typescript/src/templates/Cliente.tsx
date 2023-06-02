@@ -13,6 +13,8 @@ const columns: GridColDef[] = [
         width: 150,
         editable: true,
     },
+    { field: 'cpf', headerName: 'CPF', width: 90 },
+    { field: 'telefone', headerName: 'Telefone', width: 90 },
     {
         field: 'actions', headerName: 'Actions', width: 90, type: "actions", getActions: (params) => [
             <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
@@ -23,7 +25,11 @@ const columns: GridColDef[] = [
 
 // back
 const rows = [
-    { id: 1, name: 'Snow' },
+    { id: 1, name: '---', cpf: '-----', telefone: '(--) -------' },
+    { id: 2, name: '---', cpf: '-----', telefone: '(--) -------' },
+    { id: 3, name: '---', cpf: '-----', telefone: '(--) -------' },
+    { id: 4, name: '---', cpf: '-----', telefone: '(--) -------' },
+    { id: 5, name: '---', cpf: '-----', telefone: '(--) -------' },
 ];
 
 function Cliente(): ReactElement {
