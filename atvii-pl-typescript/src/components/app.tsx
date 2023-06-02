@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import Produto from './Produto';
-import CadastroCliente from './CadastroCliente';
+import CadastroCliente from '../templates/CadastroCliente';
 import CadastroPet from './CadastroPet';
 import Listagens from './Listagens';
 import Servico from './Servico';
@@ -18,7 +18,7 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/CadastroCliente">Cliente</Link>
+              <Link to="/Cliente">Cliente</Link>
             </li>
             <li>
               <Link to="/CadastroPet">Pet</Link>
