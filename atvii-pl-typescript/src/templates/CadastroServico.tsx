@@ -2,15 +2,13 @@ import React, { ReactElement } from 'react';
 import Appbar from '../components/Appbar';
 import { Box, Button, TextField } from '@mui/material';
 
-function CadastroPet(): ReactElement {
+function CadastroServico(): ReactElement {
     return <div> <Appbar />
-        <h2>Cadastro de Pet</h2>
+        <h2>Cadastro de Serviço</h2>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
             <Box sx={{ margin: "100px", display: "flex" }}>
-                <TextField sx={{ marginRight: "50px" }} fullWidth label="Tipo" id="tipo" />
                 <TextField sx={{ marginRight: "50px" }} fullWidth label="Nome" id="nome" />
-                <TextField sx={{ marginRight: "50px" }} fullWidth label="Raça" id="raca" />
-                <TextField sx={{ marginRight: "50px" }} fullWidth label="Gênero" id="gen" />
+                <TextField sx={{ marginRight: "50px" }} fullWidth label="Preço" id="preco" />
             </Box>
         </Box>
         <div>
@@ -20,4 +18,4 @@ function CadastroPet(): ReactElement {
 }
 
 
-export default CadastroPet;
+export default CadastroServico;
