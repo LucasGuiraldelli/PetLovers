@@ -14,6 +14,10 @@ import Cliente from "../templates/Cliente"
 import Pet from "../templates/Pet";
 import CadastroProduto from "../templates/CadastroProduto";
 import CadastroServico from "../templates/CadastroServico";
+import Listagemtop10quant from "../templates/Listagemtop10quant";
+import Listagemtop5emValor from "../templates/Listagemtop5emValor";
+import ListagemtopServProd from "../templates/ListagemtopServProd";
+import ListagemtopServProdPet from "../templates/ListagemtopServProdPet";
 
 export const router = createBrowserRouter([
     {
@@ -60,4 +64,21 @@ export const router = createBrowserRouter([
         path: "listagens",
         element: <Listagens />,
     },
+    {
+        path: "listagemtop10quant",
+        element: <Listagemtop10quant />,
+    },
+    {
+        path: "Listagemtop5emValor",
+        element: <Listagemtop5emValor />,
+    },
+    {
+        path: "ListagemtopServProd",
+        element: <ListagemtopServProd />,
+    },
+    {
+        path: "ListagemtopServProdPet",
+        element: <ListagemtopServProdPet />,
+    },
+
 ]);

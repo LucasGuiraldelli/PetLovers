@@ -1,50 +1,52 @@
 import React, { ReactElement } from 'react';
+import CadastroCliente from './CadastroCliente';
 import Appbar from '../components/Appbar';
-import { DataGrid, GridActionsCellItem, GridColDef } from '@mui/x-data-grid';
-import { Box } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit'
-import DeleteIcon from '@mui/icons-material/Delete'
+
+import '../components/designe.css';
 import CSS from 'csstype'
 
+import { Box, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
 const titulo: CSS.Properties = {
-    marginTop: "70px",
-    textAlign: "center"
+    marginTop: "70px"
 }
 
-const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 90 },
-    {
-        field: 'name',
-        headerName: 'Nome',
-        width: 150,
-        editable: true,
-    },
-    {
-        field: 'actions', headerName: 'Actions', width: 90, type: "actions", getActions: (params) => [
-            <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
-            <GridActionsCellItem label='Excluir' icon={<DeleteIcon color='error' />} />
-        ]
-    },
-]
-
-// back
-const rows = [
-    { id: 1, name: 'Snow' },
-];
-
 function Listagens(): ReactElement {
-    return <div> <Appbar />
-        <h1 style={titulo}>Listagens</h1>
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-            <Box sx={{ width: "1000px" }}>
-                <DataGrid
-                    columns={columns}
-                    rows={rows}
-                // sx={{ width: "600px" }}
-                />
+    const navigate = useNavigate()
+
+    return (
+        <div> <Appbar />
+            <Box sx={{ width: "100%", display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center" }}>
+                <h1 style={titulo}>Listagens</h1>
+                <Box sx={{ margin: "50px", display: "flex" }}>
+                    <Button sx={{ color: "white", marginRight: "20px" }} variant="contained" onClick={() => {
+                        navigate("/Listagemtop10quant")
+                    }}>
+                        Top 10 clientes em consumo/quantidade
+                    </Button>
+
+                    <Button sx={{ color: "white", marginRight: "20px" }} variant="contained" onClick={() => {
+                        navigate("/Listagemtop5emValor")
+                    }}>
+                        top 5 clientes que mais consumiram em valor
+                    </Button>
+
+                    <Button sx={{ color: "white", marginRight: "20px" }} variant="contained" onClick={() => {
+                        navigate("/ListagemtopServProd")
+                    }}>
+                        top serviços ou produtos mais consumidos
+                    </Button>
+
+                    <Button sx={{ color: "white", marginRight: "20px" }} variant="contained" onClick={() => {
+                        navigate("/ListagemtopServProdPet")
+                    }}>
+                        top serviços ou produtos mais consumidos por tipo e raça de pets
+                    </Button>
+                </Box>
             </Box>
-        </Box>
-    </div>
+        </div >
+    );
 }
 
 export default Listagens;
