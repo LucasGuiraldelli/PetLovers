@@ -4,6 +4,12 @@ import { DataGrid, GridActionsCellItem, GridColDef } from '@mui/x-data-grid';
 import { Box } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
+import CSS from 'csstype'
+
+const titulo: CSS.Properties = {
+    marginTop: "70px",
+    textAlign: "center"
+}
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -28,7 +34,7 @@ const rows = [
 
 function Listagens(): ReactElement {
     return <div> <Appbar />
-        <h2>Listagens</h2>
+        <h1 style={titulo}>Listagens</h1>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
             <Box sx={{ width: "1000px" }}>
                 <DataGrid
