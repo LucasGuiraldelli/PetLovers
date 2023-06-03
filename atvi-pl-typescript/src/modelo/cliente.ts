@@ -44,7 +44,30 @@ export default class Cliente {
     public get getServicosConsumidos(): Array<Servico> {
         return this.servicosConsumidos
     }
-    public get getPets(): Array<Pet>{
+    public get getPets(): Array<Pet> {
         return this.pets
     }
+
+    public addRg(rg: RG) {
+        this.rgs.push(rg)
+    }
+
+    public addTelefones(telefone: Telefone) {
+        this.telefones.push(telefone);
+    }
+
+    public addProduto(produto: Produto) {
+        this.produtosConsumidos.push(produto)
+        produto.addConsumo()
+    }
+
+    public addServico(servico: Servico) {
+        this.servicosConsumidos.push(servico)
+        servico.addConsumo()
+    }
+
+    public addPets(pet: Pet) {
+        this.pets.push(pet)
+    }
+
 }

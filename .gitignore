@@ -1,1 +1,5 @@
-atividades/
+# gitignore
+
+# paths
+_atividades/
+_example/
