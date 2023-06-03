@@ -15,7 +15,7 @@ function CadastroCliente(): ReactElement {
         <TextField sx={{ marginRight: "50px" }} fullWidth label="Telefone" id="tel" />
       </Box>
     </Box>
-    <Button sx={{ justifyContent: "center", textAlign: "center" }} variant="contained">send</Button>
+    <Button sx={{ justifyContent: "center", textAlign: "center" }} variant="contained">Cadastrar Cliente</Button>
   </div>
 }
 

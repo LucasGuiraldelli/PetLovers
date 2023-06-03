@@ -12,7 +12,7 @@ function CadastroServico(): ReactElement {
             </Box>
         </Box>
         <div>
-            <Button variant="contained">send</Button>
+            <Button variant="contained">Cadastrar Serviço</Button>
         </div>
     </div>
 }

@@ -12,7 +12,7 @@ function CadastroProduto(): ReactElement {
             </Box>
         </Box>
         <div>
-            <Button variant="contained">send</Button>
+            <Button variant="contained">Cadastrar Produto</Button>
         </div>
     </div>
 }

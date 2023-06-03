@@ -14,7 +14,7 @@ function CadastroPet(): ReactElement {
             </Box>
         </Box>
         <div>
-            <Button variant="contained">send</Button>
+            <Button variant="contained">Cadastrar Pet</Button>
         </div>
     </div>
 }
