@@ -31,8 +31,8 @@ const columns: GridColDef[] = [
     width: 150,
     editable: true,
   },
-  { field: 'cpf', headerName: 'CPF', width: 90 },
-  { field: 'telefone', headerName: 'Telefone', width: 90 },
+  { field: 'nomeSocial', headerName: 'Nome Social', width: 90 },
+  { field: 'email', headerName: 'Email', width: 90 },
   {
     field: 'actions',
     headerName: 'Actions',
@@ -46,13 +46,13 @@ const columns: GridColDef[] = [
 ]
 
 // back
-const rows = [
-  { id: 1, name: '---', cpf: '-----', telefone: '(--) -------' },
-  { id: 2, name: '---', cpf: '-----', telefone: '(--) -------' },
-  { id: 3, name: '---', cpf: '-----', telefone: '(--) -------' },
-  { id: 4, name: '---', cpf: '-----', telefone: '(--) -------' },
-  { id: 5, name: '---', cpf: '-----', telefone: '(--) -------' },
-];
+// const rows = [
+//   { id: 1, name: '---', cpf: '-----', telefone: '(--) -------' },
+//   { id: 2, name: '---', cpf: '-----', telefone: '(--) -------' },
+//   { id: 3, name: '---', cpf: '-----', telefone: '(--) -------' },
+//   { id: 4, name: '---', cpf: '-----', telefone: '(--) -------' },
+//   { id: 5, name: '---', cpf: '-----', telefone: '(--) -------' },
+// ];
 
 class ListagensCliente extends React.Component<{}, State> {
   constructor(props: {}) {
@@ -65,8 +65,11 @@ class ListagensCliente extends React.Component<{}, State> {
     let buscadorClientes = new BuscadorClientes()
     const clientes = buscadorClientes.buscar()
     clientes.then(clientes => {
-      this.setState({ clientes })
+      this.setState({clientes:clientes})
+      console.log(clientes)
     })
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+    console.log(this.state.clientes)
   }
 
   public excluirRemoto(idCliente: string) {
@@ -74,10 +77,11 @@ class ListagensCliente extends React.Component<{}, State> {
     let cliente: Cliente = {
       id: idCliente,
       nome: "",
+      nomeSocial: "",
       sobreNome: "",
       email: "",
       telefones: [],
-      endereco: new Endereco('', '', '', '', '', '', '')
+      endereco: new Endereco('', '', '', '', '', '')
     };
     removedor.remover(cliente);
   }
@@ -97,20 +101,27 @@ class ListagensCliente extends React.Component<{}, State> {
     console.log(M);
     M.AutoInit();
   }
-
   render(): ReactElement {
+    const rows = this.state.clientes.map((cliente) => ({
+      id: cliente.id,
+      name: cliente.nome,
+      nomeSocial: cliente.nomeSocial,
+      email: cliente.email,
+    }));
+    console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+    console.log(rows)
     return (
       <div>
         <Appbar />
         <h1 style={titulo}>Cliente</h1>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <Box sx={{ width: "1000px" }}>
+          <Box sx={{ width: "80%" }}>
             <DataGrid
               columns={columns}
-              rows={this.state.clientes}
+              rows={rows}
             // sx={{ width: "600px" }}
             />
-          </Box>
+          </Box>  
         </Box>
       </div>
     );
