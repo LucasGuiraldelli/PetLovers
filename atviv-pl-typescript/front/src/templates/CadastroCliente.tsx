@@ -13,7 +13,6 @@ class CadastroCliente extends React.Component {
 
   constructor(props: any) {
     super(props);
-    this.telefones = new Telefone('');
     this.endereco = new Endereco('', '', '', '', '');
     this.capturarNome = this.capturarNome.bind(this);
     this.capturarNomeSocial = this.capturarNomeSocial.bind(this);

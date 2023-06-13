@@ -12,10 +12,13 @@ import RemovedorClienteLocal from '../removedores/removedorClienteLocal';
 
 import Endereco from "../components/models/endereco";
 import Cliente from "../components/models/cliente";
-import Telefone from "../components/models/telefone";
 
 type State = {
   clientes: Cliente[]
+}
+
+type rows = {
+  row: Object
 }
 
 const titulo: CSS.Properties = {
@@ -31,8 +34,13 @@ const columns: GridColDef[] = [
     width: 150,
     editable: true,
   },
-  { field: 'nomeSocial', headerName: 'Nome Social', width: 90 },
-  { field: 'email', headerName: 'Email', width: 90 },
+  { field: 'nomeSocial', headerName: 'Nome Social', width: 150 },
+  { field: 'email', headerName: 'Email', width: 110 },
+  { field: 'enderecoEstado', headerName: 'Endereco Estado', width: 190 },
+  { field: 'enderecoCidade', headerName: 'Endereco Cidade', width: 190 },
+  { field: 'enderecoBairro', headerName: 'Endereco Bairro', width: 190 },
+  { field: 'enderecoRua', headerName: 'Endereco Rua', width: 190 },
+  { field: 'enderecoNum', headerName: 'Endereco Numero', width: 90 },
   {
     field: 'actions',
     headerName: 'Actions',
@@ -40,7 +48,15 @@ const columns: GridColDef[] = [
     type: "actions",
     getActions: (params) => [
       <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
-      <GridActionsCellItem label='Excluir' icon={<DeleteIcon color='error' />} onClick={(e) => excluirLocal(params.id, e)} />
+      // <GridActionsCellItem label='Excluir' icon={<DeleteIcon color='error' />} onClick={(e) => {this.excluirRemoto(e)}} />
+      <GridActionsCellItem
+        label='Excluir'
+        icon={<DeleteIcon color='error' />}
+        onClick={() => {
+          // console.log(params.row);
+          excluirRemoto(params.row.id);
+        }}
+      />,
     ]
   },
 ]
@@ -80,8 +96,8 @@ class ListagensCliente extends React.Component<{}, State> {
       nomeSocial: "",
       sobreNome: "",
       email: "",
-      telefones: [],
-      endereco: new Endereco('', '', '', '', '', '')
+      endereco: new Endereco('', '', '', '', ''),
+      telefones: []
     };
     removedor.remover(cliente);
   }
@@ -107,6 +123,11 @@ class ListagensCliente extends React.Component<{}, State> {
       name: cliente.nome,
       nomeSocial: cliente.nomeSocial,
       email: cliente.email,
+      enderecoEstado: cliente.endereco.estado,
+      enderecoCidade: cliente.endereco.cidade,
+      enderecoBairro: cliente.endereco.bairro,
+      enderecoRua: cliente.endereco.rua,
+      enderecoNum: cliente.endereco.numero,
     }));
     console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBB")
     console.log(rows)
@@ -115,7 +136,7 @@ class ListagensCliente extends React.Component<{}, State> {
         <Appbar />
         <h1 style={titulo}>Cliente</h1>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-          <Box sx={{ width: "80%" }}>
+          <Box >
             <DataGrid
               columns={columns}
               rows={rows}
@@ -127,9 +148,18 @@ class ListagensCliente extends React.Component<{}, State> {
     );
   }
 }
-
 export default ListagensCliente;
-function excluirLocal(id: GridRowId, e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-  throw new Error('Function not implemented.');
-}
 
+function excluirRemoto(idCliente: string) {
+  let removedor = new RemovedorCliente()
+  let cliente: Cliente = {
+    id: idCliente,
+    nome: "",
+    nomeSocial: "",
+    sobreNome: "",
+    email: "",
+    endereco: new Endereco('', '', '', '', ''),
+    telefones: []
+  };
+  removedor.remover(cliente);
+}
