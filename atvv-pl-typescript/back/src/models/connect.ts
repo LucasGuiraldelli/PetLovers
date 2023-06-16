@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize'
 
 
- const connection = new Sequelize("atvv", "root", "thales", {
+ const connection = new Sequelize("atividade5", "root", "root", {
       host: 'localhost',
       dialect: 'mysql',
       port: 3306

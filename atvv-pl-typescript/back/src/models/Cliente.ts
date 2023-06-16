@@ -31,7 +31,9 @@ const cliente = database.define('cliente', {
         type: Sequelize.STRING,
         allowNull: false
     },
+
 })
 
+cliente.sync({ alter: true });
 
 module.exports = cliente;

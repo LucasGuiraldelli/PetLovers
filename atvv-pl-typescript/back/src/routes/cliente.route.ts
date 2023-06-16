@@ -68,8 +68,6 @@ clienteRoute.put('/cliente/modificar/:uuid', async(req: Request<{ uuid: string }
 clienteRoute.delete('/cliente/deletar/:uuid', async(req: Request<{ uuid: string }>, res: Response, next: NextFunction)=>{
     const uuid = req.params.uuid;
 
-    await clienteProduto.destroy({ where: {clienteId: uuid}})
-    await clienteServico.destroy({ where: {clienteId: uuid}})
 
     await cliente.destroy({
         where: {
