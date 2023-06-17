@@ -22,6 +22,10 @@ const produto = database.define('produto', {
     consumo: {
         type: Sequelize.INTEGER,
         allowNull: false
+    },
+    descricao: {
+        type: Sequelize.STRING,
+        allowNull: true
     }
 })
 

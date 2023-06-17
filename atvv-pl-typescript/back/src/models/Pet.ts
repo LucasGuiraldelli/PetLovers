@@ -16,11 +16,11 @@ const pet = database.define('pet', {
         allowNull: false
     },
     raca: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     },
     tipo: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false
     }
 })

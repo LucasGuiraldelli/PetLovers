@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import CadastroCliente from './CadastroCliente';
+import CadastroCliente from '../templates/CadastroCliente';
 import Appbar from '../components/Appbar';
 
 import '../components/designe.css';

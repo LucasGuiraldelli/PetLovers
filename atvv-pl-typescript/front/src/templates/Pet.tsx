@@ -22,7 +22,6 @@ const columns: GridColDef[] = [
         editable: true,
     },
     { field: 'raca', headerName: 'Raca', width: 90 },
-    { field: 'gen', headerName: 'Gênero', width: 90 },
     {
         field: 'actions', headerName: 'Actions', width: 90, type: "actions", getActions: (params) => [
             <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
@@ -33,11 +32,11 @@ const columns: GridColDef[] = [
 
 // back
 const rows = [
-    { id: 1, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
-    { id: 2, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
-    { id: 3, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
-    { id: 4, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
-    { id: 5, tipo: '-----', name: '----', raca: '-----', genero: '--------' },
+    { id: 1, tipo: '-----', name: '----', raca: '-----'},
+    { id: 2, tipo: '-----', name: '----', raca: '-----'},
+    { id: 3, tipo: '-----', name: '----', raca: '-----'},
+    { id: 4, tipo: '-----', name: '----', raca: '-----'},
+    { id: 5, tipo: '-----', name: '----', raca: '-----'},
 ];
 
 function Pet(): ReactElement {
