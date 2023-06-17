@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from '../templates/Home';
-// import Produto from './Produto';
+import Produto from '../templates/Produto';
 import CadastroCliente from '../templates/CadastroCliente';
-// import CadastroPet from './CadastroPet';
-// import Listagens from './Listagens';
-// import Servico from './Servico';
+import CadastroPet from '../templates/CadastroPet';
+import Listagens from '../templates/Listagens';
+import Servico from '../templates/Servico';
 import './designe.css';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             <li>
               <Link to="/Cliente">Cliente</Link>
             </li>
-            {/* <li>
+            <li>
               <Link to="/CadastroPet">Pet</Link>
             </li>
             <li>
@@ -31,17 +31,17 @@ function App() {
             </li>
             <li>
               <Link to="/Listagens">Listagens</Link>
-            </li> */}
+            </li>
           </ul>
         </nav>
 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/CadastroCliente" element={<CadastroCliente />} />
-          {/* <Route path="/CadastroPet" element={<CadastroPet />} />
+          <Route path="/CadastroPet" element={<CadastroPet />} />
           <Route path="/Produto" element={<Produto />} />
           <Route path="/Servico" element={<Servico />} />
-          <Route path="/Listagens" element={<Listagens />} /> */}
+          <Route path="/Listagens" element={<Listagens />} />
         </Routes>
       </div>
     </Router>

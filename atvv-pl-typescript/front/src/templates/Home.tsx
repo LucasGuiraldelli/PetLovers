@@ -25,6 +25,24 @@ function Home(): ReactElement {
           }}>
             Cadastro de Cliente
           </Button>
+
+          <Button sx={{ color: "white", marginRight: "20px" }} variant="contained" onClick={() => {
+            navigate("/cadastro-pet")
+          }}>
+            Cadastro de Pet
+          </Button>
+
+          <Button sx={{ color: "white", marginRight: "20px" }} variant="contained" onClick={() => {
+            navigate("/cadastro-produto")
+          }}>
+            Cadastro de Produto
+          </Button>
+
+          <Button sx={{ color: "white", marginRight: "20px" }} variant="contained" onClick={() => {
+            navigate("/cadastro-servico")
+          }}>
+            Cadastro de Servico
+          </Button>
         </Box>
       </Box>
     </div >
