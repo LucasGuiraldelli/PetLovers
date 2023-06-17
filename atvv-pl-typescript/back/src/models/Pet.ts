@@ -4,7 +4,7 @@ const Sequelize = require('sequelize');
 const database = require('./connect')
 
  
-const produto = database.define('produto', {
+const pet = database.define('pet', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -15,15 +15,16 @@ const produto = database.define('produto', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    preco: {
+    raca: {
         type: Sequelize.INTEGER,
         allowNull: false
     },
-    consumo: {
+    tipo: {
         type: Sequelize.INTEGER,
         allowNull: false
     }
 })
 
+pet.sync({ alter: true });
 
-module.exports = produto;
+module.exports = pet;

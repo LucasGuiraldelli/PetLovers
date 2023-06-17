@@ -1,28 +1,22 @@
 import React, { ReactElement, ChangeEvent } from 'react';
 import Appbar from '../components/Appbar';
 import { Box, Button, TextField } from '@mui/material';
-import Endereco from '../components/models/endereco';
-import Telefone from '../components/models/telefone';
 import CadastradorCliente from '../cadastradores/cadastradorCliente';
 
 class CadastroCliente extends React.Component {
   private nome: string | undefined;
   private nomeSocial: string | undefined;
   private email: string | undefined;
-  private endereco: Endereco;
+  private endereco: string | undefined;
+  private telefone: string | undefined;
 
   constructor(props: any) {
     super(props);
-    this.endereco = new Endereco('', '', '', '', '');
+    this.capturarEndereco = this.capturarEndereco.bind(this);
     this.capturarNome = this.capturarNome.bind(this);
     this.capturarNomeSocial = this.capturarNomeSocial.bind(this);
     this.capturarEmail = this.capturarEmail.bind(this);
-
-    this.capturarEnderecoEstado = this.capturarEnderecoEstado.bind(this);
-    this.capturarEnderecoCidade = this.capturarEnderecoCidade.bind(this);
-    this.capturarEnderecoBairro = this.capturarEnderecoBairro.bind(this);
-    this.capturarEnderecoRua = this.capturarEnderecoRua.bind(this);
-    this.capturarEnderecoNum = this.capturarEnderecoNum.bind(this);
+    this.capturarTelefone = this.capturarTelefone.bind(this);
 
     this.submeterFormulario = this.submeterFormulario.bind(this);
     this.cadastrarCliente = this.cadastrarCliente.bind(this);
@@ -45,24 +39,12 @@ class CadastroCliente extends React.Component {
     this.email = evento.target.value;
   }
 
-  public capturarEnderecoEstado(evento: ChangeEvent<HTMLInputElement>) {   
-    this.endereco.estado = evento.target.value;
+  public capturarEndereco(evento: ChangeEvent<HTMLInputElement>) {   
+    this.endereco = evento.target.value;
   }
 
-  public capturarEnderecoCidade(evento: ChangeEvent<HTMLInputElement>) {   // corrigir
-    this.endereco.cidade = evento.target.value;
-  }
-
-  public capturarEnderecoBairro(evento: ChangeEvent<HTMLInputElement>) {   // corrigir
-    this.endereco.bairro = evento.target.value;
-  }
-
-  public capturarEnderecoRua(evento: ChangeEvent<HTMLInputElement>) {   // corrigir
-    this.endereco.rua = evento.target.value;
-  }
-
-  public capturarEnderecoNum(evento: ChangeEvent<HTMLInputElement>) {   // corrigir
-    this.endereco.numero = evento.target.value;
+  public capturarTelefone(evento: ChangeEvent<HTMLInputElement>) {   
+    this.telefone = evento.target.value;
   }
 
 
@@ -73,6 +55,7 @@ class CadastroCliente extends React.Component {
       nomeSocial: this.nomeSocial,
       email: this.email,
       endereco: this.endereco,
+      telefone: this.telefone,
     };
     this.cadastrarCliente(cliente);
     evento.currentTarget.reset();
@@ -89,11 +72,8 @@ class CadastroCliente extends React.Component {
               <TextField sx={{ marginRight: "50px" }} fullWidth label="Nome" id="nome" onChange={this.capturarNome} />
               <TextField sx={{ marginRight: "50px" }} fullWidth label="Nome Social" id="nomeSocial" onChange={this.capturarNomeSocial} />
               <TextField sx={{ marginRight: "50px" }} fullWidth label="Email" id="email" onChange={this.capturarEmail} />
-              <TextField sx={{ marginRight: "50px" }} fullWidth label="Estado" id="endereco" onChange={this.capturarEnderecoEstado} />
-              <TextField sx={{ marginRight: "50px" }} fullWidth label="Cidade" id="endereco" onChange={this.capturarEnderecoCidade} />
-              <TextField sx={{ marginRight: "50px" }} fullWidth label="Bairro" id="endereco" onChange={this.capturarEnderecoBairro} />
-              <TextField sx={{ marginRight: "50px" }} fullWidth label="Rua" id="endereco" onChange={this.capturarEnderecoRua} />
-              <TextField sx={{ marginRight: "50px" }} fullWidth label="Numero" id="endereco" onChange={this.capturarEnderecoNum} />
+              <TextField sx={{ marginRight: "50px" }} fullWidth label="Endereco" id="endereco" onChange={this.capturarEndereco} />
+              <TextField sx={{ marginRight: "50px" }} fullWidth label="Telefone" id="telefone" onChange={this.capturarTelefone} />
             </Box>
           </Box>
           <Button sx={{ justifyContent: "center", textAlign: "center" }} variant="contained" type="submit">Cadastrar Cliente</Button>

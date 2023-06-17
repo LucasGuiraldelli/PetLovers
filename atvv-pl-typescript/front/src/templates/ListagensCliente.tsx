@@ -9,9 +9,8 @@ import CSS from 'csstype'
 import BuscadorClientes from '../buscadores/buscadorCliente';
 import RemovedorCliente from '../removedores/removedorCliente';
 import RemovedorClienteLocal from '../removedores/removedorClienteLocal';
+import Cliente from '../components/models/cliente';
 
-import Endereco from "../components/models/endereco";
-import Cliente from "../components/models/cliente";
 
 type State = {
   clientes: Cliente[]
@@ -35,12 +34,10 @@ const columns: GridColDef[] = [
     editable: true,
   },
   { field: 'nomeSocial', headerName: 'Nome Social', width: 150 },
+  { field: 'endereco', headerName: 'Endereco', width: 190 },
   { field: 'email', headerName: 'Email', width: 110 },
-  { field: 'enderecoEstado', headerName: 'Endereco Estado', width: 190 },
-  { field: 'enderecoCidade', headerName: 'Endereco Cidade', width: 190 },
-  { field: 'enderecoBairro', headerName: 'Endereco Bairro', width: 190 },
-  { field: 'enderecoRua', headerName: 'Endereco Rua', width: 190 },
-  { field: 'enderecoNum', headerName: 'Endereco Numero', width: 90 },
+  { field: 'telefone', headerName: 'Telefone', width: 110 },
+
   {
     field: 'actions',
     headerName: 'Actions',
@@ -94,10 +91,9 @@ class ListagensCliente extends React.Component<{}, State> {
       id: idCliente,
       nome: "",
       nomeSocial: "",
-      sobreNome: "",
       email: "",
-      endereco: new Endereco('', '', '', '', ''),
-      telefones: []
+      endereco: "",
+      telefone: ""
     };
     removedor.remover(cliente);
   }
@@ -123,11 +119,8 @@ class ListagensCliente extends React.Component<{}, State> {
       name: cliente.nome,
       nomeSocial: cliente.nomeSocial,
       email: cliente.email,
-      enderecoEstado: cliente.endereco.estado,
-      enderecoCidade: cliente.endereco.cidade,
-      enderecoBairro: cliente.endereco.bairro,
-      enderecoRua: cliente.endereco.rua,
-      enderecoNum: cliente.endereco.numero,
+      endereco: cliente.endereco,
+      telefone: cliente.telefone,
     }));
     console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBB")
     console.log(rows)
@@ -156,10 +149,9 @@ function excluirRemoto(idCliente: string) {
     id: idCliente,
     nome: "",
     nomeSocial: "",
-    sobreNome: "",
     email: "",
-    endereco: new Endereco('', '', '', '', ''),
-    telefones: []
+    endereco: "",
+    telefone: ""
   };
   removedor.remover(cliente);
 }

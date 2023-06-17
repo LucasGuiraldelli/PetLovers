@@ -1,21 +1,18 @@
-import Endereco from "./endereco"
-import Telefone from "./telefone"
 
 export default class Cliente {
+  public id !: string;
   public nome: string;
-  public sobreNome: string;
-  public email: string;
-  public telefones: Telefone[];
-  public endereco: Endereco;
-  public id!: string;
   public nomeSocial: string;
+  public email: string;
+  public telefone: string;
+  public endereco: string;
 
-  constructor(nome: string, sobreNome: string, email: string, endereco: Endereco, nomeSocial: string) {
+
+  constructor(nome: string, email: string, endereco: string, nomeSocial: string, telefone: string) {
     this.nome = nome;
-    this.sobreNome = sobreNome;
     this.nomeSocial = nomeSocial;
-    this.email = email;
     this.endereco = endereco;
-    this.telefones = [];
+    this.email = email;
+    this.telefone = telefone;
   }
 }

@@ -25,5 +25,6 @@ const servico = database.define('servico', {
     }
 })
 
+servico.sync({ alter: true });
 
 module.exports = servico;
