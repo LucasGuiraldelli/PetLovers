@@ -26,5 +26,10 @@ export enum URI {
 
 
     // listagens
-    
+    SERVPROD = 'http://localhost:3001/servprod',
+    DELETAR_SERVPROD = 'http://localhost:3001/servprod/deletar/',
+    CADASTRAR_SERVPROD = 'http://localhost:3001/servprod/cadastrar',
+    EDITAR_SERVPROD = 'http://localhost:3001/servprod/modificar/',
+
+
 }

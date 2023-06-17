@@ -77,7 +77,7 @@ class ListagensProduto extends React.Component<{}, State> {
           }));
           
         const servicosRows = this.state.Servicos.map((Servico) => ({
-            id: Servico.id,
+            id: Servico.id + 2,
             name: Servico.nome,
             preco: Servico.preco,
             descricao: Servico.descricao,

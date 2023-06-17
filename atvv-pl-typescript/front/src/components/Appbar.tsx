@@ -38,6 +38,13 @@ export const Appbar = () => {
                     Serviço
                 </Button>
 
+                
+                <Button sx={{ color: "white" }} onClick={() => {
+                    navigate("/CadastroServProd")
+                }}>
+                    Consumo
+                </Button>
+
                 <Button sx={{ color: "white" }} onClick={() => {
                     navigate("/Listagens")
                 }}>

@@ -9,6 +9,7 @@ import CadastroPet from "../templates/CadastroPet";
 import Listagens from "../templates/Listagens";
 import Produto from "../templates/ListagemProduto";
 import Servico from "../templates/ListagemServico";
+import CadastroServProd from "../templates/CadastroServProd";
 
 import Cliente from "../templates/ListagensCliente"
 import Pet from "../templates/ListagemPet";
@@ -80,5 +81,9 @@ export const router = createBrowserRouter([
         path: "ListagemtopServProdPet",
         element: <ListagemtopServProdPet />,
     },
+    {
+        path: "CadastroServProd",
+        element: <CadastroServProd />,
+    }
 
 ]);

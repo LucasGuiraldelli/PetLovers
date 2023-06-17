@@ -4,6 +4,7 @@ import servicoRoute from './routes/servico.route'
 import clienteRoute from './routes/cliente.route';
 import petRoute from './routes/pet.route';
 import produtoRoute from './routes/produto.route';
+import usuarioProdServRoute from './routes/usuarioProdServ.route';
 import cors from 'cors';
 const connection = require('./models/connect')
 
@@ -23,6 +24,7 @@ app.use(clienteRoute)
 app.use(petRoute)
 app.use(produtoRoute)
 app.use(statusRouter)
+app.use(usuarioProdServRoute)
 
 // inicialização do server
 app.listen(3001,()=>{
