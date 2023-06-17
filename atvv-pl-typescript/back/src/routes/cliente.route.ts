@@ -4,6 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 const clienteRoute = Router();
 const cliente = require('../models/Cliente')
 
+
 clienteRoute.get('/cliente', async(req: Request, res: Response, next: NextFunction)=>{
     const airplaneList = await cliente.findAll();
     res.status(StatusCodes.OK).send(airplaneList)

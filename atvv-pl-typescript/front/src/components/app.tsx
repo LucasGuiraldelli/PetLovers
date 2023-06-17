@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from '../templates/Home';
-import Produto from '../templates/Produto';
+import Produto from '../templates/ListagemProduto';
 import CadastroCliente from '../templates/CadastroCliente';
 import CadastroPet from '../templates/CadastroPet';
 import Listagens from '../templates/Listagens';
-import Servico from '../templates/Servico';
+import Servico from '../templates/ListagemServico';
 import './designe.css';
 
 function App() {

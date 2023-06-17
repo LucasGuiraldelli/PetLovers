@@ -19,6 +19,10 @@ const servico = database.define('servico', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    descricao : {
+        type: Sequelize.STRING,
+        allowNull: true
+    },
     consumo: {
         type: Sequelize.INTEGER,
         allowNull: false

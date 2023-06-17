@@ -7,11 +7,11 @@ import Home from "../templates/Home";
 import CadastroCliente from "../templates/CadastroCliente";
 import CadastroPet from "../templates/CadastroPet";
 import Listagens from "../templates/Listagens";
-import Produto from "../templates/Produto";
-import Servico from "../templates/Servico";
+import Produto from "../templates/ListagemProduto";
+import Servico from "../templates/ListagemServico";
 
 import Cliente from "../templates/ListagensCliente"
-import Pet from "../templates/Pet";
+import Pet from "../templates/ListagemPet";
 import CadastroProduto from "../templates/CadastroProduto";
 import CadastroServico from "../templates/CadastroServico";
 import Listagemtop10quant from "../templates/Listagemtop10quant";
