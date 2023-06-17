@@ -32,7 +32,6 @@ const columns: GridColDef[] = [
     },
     { field: 'tipo', headerName: 'Tipo', width: 150 },
     { field: 'nome_sp', headerName: 'servico/produto', width: 190 },
-    { field: 'valor', headerName: 'valor', width: 190 },
     { field: 'quantidade', headerName: 'Quantidade', width: 190 },
 ]
 
@@ -64,7 +63,6 @@ class ListagensServProd extends React.Component<{}, State> {
             nome_cliente: Produto.nome_cliente,
             tipo: Produto.tipo,
             nome_sp: Produto.nome_sp,
-            valor: Produto.valor,
             quantidade: Produto.quantidade,
         }));
         console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBB")
@@ -72,7 +70,7 @@ class ListagensServProd extends React.Component<{}, State> {
         return (
             <div>
                 <Appbar />
-                <h1 style={titulo}>Produto</h1>
+                <h1 style={titulo}>Top clientes em Quantidade</h1>
                 <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
                     <Box >
                         <DataGrid
