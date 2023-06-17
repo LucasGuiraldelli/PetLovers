@@ -24,4 +24,7 @@ export enum URI {
     CADASTRAR_SERVICO = 'http://localhost:3001/servico/cadastrar',
     EDITAR_SERVICO = 'http://localhost:3001/servico/modificar/',
 
+
+    // listagens
+    
 }
