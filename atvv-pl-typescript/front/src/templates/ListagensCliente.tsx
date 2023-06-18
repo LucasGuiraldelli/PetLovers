@@ -33,10 +33,10 @@ const columns: GridColDef[] = [
     width: 150,
     editable: true,
   },
-  { field: 'nomeSocial', headerName: 'Nome Social', width: 150 },
-  { field: 'endereco', headerName: 'Endereco', width: 190 },
-  { field: 'email', headerName: 'Email', width: 110 },
-  { field: 'telefone', headerName: 'Telefone', width: 110 },
+  { field: 'nomeSocial', headerName: 'Nome Social', width: 150, editable: true, },
+  { field: 'endereco', headerName: 'Endereco', width: 190, editable: true, },
+  { field: 'email', headerName: 'Email', width: 110, editable: true, },
+  { field: 'telefone', headerName: 'Telefone', width: 110, editable: true, },
 
   {
     field: 'actions',
@@ -44,7 +44,15 @@ const columns: GridColDef[] = [
     width: 90,
     type: "actions",
     getActions: (params) => [
-      <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
+      // <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
+      <GridActionsCellItem
+        label='Editar'
+        icon={<EditIcon color='success' />}
+        onClick={() => {
+          // console.log(params.row);
+          editarRemoto(params.row.id, params.row.name, params.row.nomeSocial, params.row.endereco, params.row.email, params.row.telefone);
+        }}
+      />,
       // <GridActionsCellItem label='Excluir' icon={<DeleteIcon color='error' />} onClick={(e) => {this.excluirRemoto(e)}} />
       <GridActionsCellItem
         label='Excluir'
@@ -78,7 +86,7 @@ class ListagensCliente extends React.Component<{}, State> {
     let buscadorClientes = new BuscadorClientes()
     const clientes = buscadorClientes.buscar()
     clientes.then(clientes => {
-      this.setState({clientes:clientes})
+      this.setState({ clientes: clientes })
       console.log(clientes)
     })
     console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
@@ -135,7 +143,7 @@ class ListagensCliente extends React.Component<{}, State> {
               rows={rows}
             // sx={{ width: "600px" }}
             />
-          </Box>  
+          </Box>
         </Box>
       </div>
     );
@@ -154,4 +162,36 @@ function excluirRemoto(idCliente: string) {
     telefone: ""
   };
   removedor.remover(cliente);
+}
+
+
+
+
+function editarRemoto(idCliente: number, nomeCliente: string, nomeSocial: string, endereco: string, email: string, telefone: string) {
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  // let nome = document.querySelector("")
+
+  var raw = JSON.stringify({
+    "nome": nomeCliente,
+    "nomeSocial": nomeSocial,
+    "email": email,
+    "endereco": endereco,
+    "telefone": telefone
+  });
+
+  var requestOptions = {
+    method: 'PUT',
+    headers: myHeaders, 
+    body: raw,
+    redirect: 'follow' as RequestRedirect
+  };
+
+  fetch(`http://localhost:3001/cliente/modificar/${idCliente}`, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
 }

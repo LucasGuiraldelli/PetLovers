@@ -4,13 +4,13 @@ export enum URI {
     CLIENTES = 'http://localhost:3001/cliente',
     DELETAR_CLIENTE = 'http://localhost:3001/cliente/deletar/',
     CADASTRAR_CLIENTE = 'http://localhost:3001/cliente/cadastrar',
-    EDITAR_CLIENTE = 'http://localhost:3001/cliente/atualizar/',
+    EDITAR_CLIENTE = 'http://localhost:3001/cliente/modificar/',
 
     // pet
     PETS = 'http://localhost:3001/pet',
     DELETAR_PET = 'http://localhost:3001/pet/deletar/',
     CADASTRAR_PET = 'http://localhost:3001/pet/cadastrar',
-    EDITAR_PET = 'http://localhost:3001/pet/atualizar/',
+    EDITAR_PET = 'http://localhost:3001/pet/modificar/',
 
     // produto
     PRODUTOS = 'http://localhost:3001/produto',

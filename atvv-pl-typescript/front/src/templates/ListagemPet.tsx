@@ -33,7 +33,7 @@ const columns: GridColDef[] = [
     width: 150,
     editable: true,
   },
-  { field: 'raca', headerName: 'Raça', width: 150 },
+  { field: 'raca', headerName: 'Raça', width: 150 }, 
   { field: 'tipo', headerName: 'Tipo', width: 190 },
 
 
@@ -43,7 +43,15 @@ const columns: GridColDef[] = [
     width: 90,
     type: "actions",
     getActions: (params) => [
-      <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
+      // <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
+      <GridActionsCellItem
+        label='Editar'
+        icon={<EditIcon color='success' />}
+        onClick={() => {
+          // console.log(params.row);
+          editarRemoto(params.row.id, params.row.name, params.row.raca, params.row.tipo);
+        }}
+      />,
       // <GridActionsCellItem label='Excluir' icon={<DeleteIcon color='error' />} onClick={(e) => {this.excluirRemoto(e)}} />
       <GridActionsCellItem
         label='Excluir'
@@ -138,4 +146,32 @@ function excluirRemoto(idPet: string) {
     tipo: ""
   };
   removedor.remover(Pet);
+}
+
+
+function editarRemoto(idCliente: number, name: string, raca: string, tipo: string) {
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  // let nome = document.querySelector("")
+
+  var raw = JSON.stringify({
+    "nome": name,
+    "raca": raca,
+    "tipo": tipo
+  });
+
+  var requestOptions = {
+    method: 'PUT',
+    headers: myHeaders, 
+    body: raw,
+    redirect: 'follow' as RequestRedirect
+  };
+
+  fetch(`http://localhost:3001/pet/modificar/${idCliente}`, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
 }

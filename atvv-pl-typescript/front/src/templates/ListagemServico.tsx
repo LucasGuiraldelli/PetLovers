@@ -44,7 +44,15 @@ const columns: GridColDef[] = [
     width: 90,
     type: "actions",
     getActions: (params) => [
-      <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
+      // <GridActionsCellItem label='Editar' icon={<EditIcon color='success' />} />,
+      <GridActionsCellItem
+        label='Editar'
+        icon={<EditIcon color='success' />}
+        onClick={() => {
+          // console.log(params.row);
+          editarRemoto(params.row.id, params.row.name, params.row.preco, params.row.descricao, params.row.consumo);
+        }}
+      />,
       // <GridActionsCellItem label='Excluir' icon={<DeleteIcon color='error' />} onClick={(e) => {this.excluirRemoto(e)}} />
       <GridActionsCellItem
         label='Excluir'
@@ -142,4 +150,33 @@ function excluirRemoto(idServico: string) {
     consumo: ""
   };
   removedor.remover(Servico);
+}
+
+
+function editarRemoto(idCliente: number, name: string, preco: number, descricao: string, consumo: number) {
+
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  // let nome = document.querySelector("")
+
+  var raw = JSON.stringify({
+    "nome": name,
+    "preco": preco,
+    "descricao": descricao,
+    "consumo": consumo
+  });
+
+  var requestOptions = {
+    method: 'PUT',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow' as RequestRedirect
+  };
+
+  fetch(`http://localhost:3001/servico/modificar/${idCliente}`, requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+
 }
