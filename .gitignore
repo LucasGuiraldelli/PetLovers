@@ -1,0 +1,6 @@
+# gitignore
+
+# paths
+_atividades/
+_example/
+node_modules
