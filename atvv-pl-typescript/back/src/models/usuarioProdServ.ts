@@ -31,10 +31,16 @@ const usuarioProdServ = database.define('usuarioProdServ', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    racapet : {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    tipopet : {
+        type: Sequelize.STRING,
+        allowNull: false
+    }
 })
 
 usuarioProdServ.sync({ alter: true });
 
 module.exports = usuarioProdServ;
-
-  

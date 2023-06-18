@@ -9,6 +9,8 @@ class CadastroServProd extends React.Component {
   private valor: string | undefined;
   private quantidade: string | undefined;
   private nome_sp: string | undefined;
+  private racapet: string | undefined;
+  private tipopet: string | undefined;
 
   constructor(props: any) {
     super(props);
@@ -17,6 +19,8 @@ class CadastroServProd extends React.Component {
     this.capturarValor = this.capturarValor.bind(this);
     this.capturarQuantidade = this.capturarQuantidade.bind(this);
     this.capturarNome_sp = this.capturarNome_sp.bind(this);
+    this.capturarTipopet = this.capturarTipopet.bind(this);
+    this.capturarRacapet = this.capturarRacapet.bind(this);
 
     this.submeterFormulario = this.submeterFormulario.bind(this);
     this.cadastrarservProd = this.cadastrarservProd.bind(this);
@@ -48,6 +52,16 @@ class CadastroServProd extends React.Component {
     this.valor = evento.target.value;
   }
 
+  
+  public capturarTipopet(evento: ChangeEvent<HTMLInputElement>) {
+    this.tipopet = evento.target.value;
+  }
+
+  
+  public capturarRacapet(evento: ChangeEvent<HTMLInputElement>) {
+    this.racapet = evento.target.value;
+  }
+
 
   public submeterFormulario(evento: React.FormEvent<HTMLFormElement>) {
     evento.preventDefault();
@@ -57,6 +71,8 @@ class CadastroServProd extends React.Component {
       quantidade: this.quantidade,
       valor: this.valor,
       nome_sp: this.nome_sp,
+      tipopet: this.tipopet,
+      racapet: this.racapet,
     };
     this.cadastrarservProd(servProd);
     evento.currentTarget.reset();
@@ -75,6 +91,8 @@ class CadastroServProd extends React.Component {
               <TextField sx={{ marginRight: "50px" }} fullWidth label="Nome Ação" id="nome_sp" onChange={this.capturarNome_sp} />
               <TextField sx={{ marginRight: "50px" }} fullWidth label="Quantidade" id="quantidade" onChange={this.capturarQuantidade} />
               <TextField sx={{ marginRight: "50px" }} fullWidth label="Valor" id="valor" onChange={this.capturarValor} />
+              <TextField sx={{ marginRight: "50px" }} fullWidth label="Tipo do Pet" id="tipopet" onChange={this.capturarTipopet} />
+              <TextField sx={{ marginRight: "50px" }} fullWidth label="Raca do Pet" id="racapet" onChange={this.capturarRacapet} />
             </Box>
             
           </Box>
