@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from '../templates/Home';
-import Produto from '../templates/Produto';
+import Produto from '../templates/ListagemProduto';
 import CadastroCliente from '../templates/CadastroCliente';
 import CadastroPet from '../templates/CadastroPet';
 import Listagens from '../templates/Listagens';
-import Servico from '../templates/Servico';
+import Servico from '../templates/ListagemServico';
+
+import CadastroServProd from '../templates/CadastroServProd';
+
 import './designe.css';
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
               <Link to="/Servico">Serviço</Link>
             </li>
             <li>
+              <Link to="/CadastroServProd">Consumo</Link>
+            </li>
+            <li>
               <Link to="/Listagens">Listagens</Link>
             </li>
           </ul>
@@ -41,6 +47,7 @@ function App() {
           <Route path="/CadastroPet" element={<CadastroPet />} />
           <Route path="/Produto" element={<Produto />} />
           <Route path="/Servico" element={<Servico />} />
+          <Route path="/CadastroServProd" element={<CadastroServProd />} />
           <Route path="/Listagens" element={<Listagens />} />
         </Routes>
       </div>
