@@ -20,3 +20,16 @@ Execute the .js file in 'out' path
 ```
 node <filepath> (./out/app/main.js)
 ```
+
+
+# in atvV
+
+## To run the back-end execute inside the 'back' folder :
+```
+npm run dev
+```
+
+## To execute front, use inside 'front' folder:
+```
+npm start
+```
